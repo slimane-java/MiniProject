@@ -19,6 +19,8 @@ class DefaultController extends Controller
         return $this->render('@Client/Default/index.html.twig');
     }
 
+
+ /**api pour ajouter dommande sur base de donner */
     public function AjouterClientAction(Request $request)
     {
      /*** Réclaration pour créer form */
@@ -68,7 +70,7 @@ class DefaultController extends Controller
         if($this->getCount()<11)
         {
 
-            /**Vérifier age et pays de candidat */
+  /**Vérifier age et pays de candidat */
 
             if(($Client->getPays()=="Maroc" && $age>="16") || ($Client->getPays()!="Maroc" && $age>="18")  )
                 {     
@@ -83,7 +85,10 @@ class DefaultController extends Controller
         }
       else
       {
+
+
           $moypour=$this->ValiderMoyenne()*0.1;
+
           $moy1=$this->ValiderMoyenne()+$moypour;
           $moy2=$this->ValiderMoyenne()-$moypour;
 
@@ -107,7 +112,7 @@ class DefaultController extends Controller
     }
 
 
-
+  /** Des méthode a j'ai creé */
    public function  getAge(string $d1,string $d2)
     {
         $start_date = strtotime($d1); 
