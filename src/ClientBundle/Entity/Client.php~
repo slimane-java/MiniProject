@@ -1,0 +1,83 @@
+<?php
+
+namespace ClientBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Client
+ *
+ * @ORM\Table(name="client")
+ * @ORM\Entity(repositoryClass="ClientBundle\Repository\ClientRepository")
+ */
+class Client
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $name;
+
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $prenom;
+
+     /**
+     * @var date
+     * @ORM\Column(type="date")
+     */
+    private $dateNai;
+
+
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $sexe;
+
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $telephone;
+
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $pays;
+
+     /**
+     * @var date
+     * @ORM\Column(type="date")
+     */
+    private $dateinsc;
+
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=100)
+     */
+    private $etat;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

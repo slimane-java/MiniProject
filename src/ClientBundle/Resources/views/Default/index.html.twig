@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!DOCTYPE>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker-standalone.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+<div class="container">
+{{form_start(form)}}
+    <fieldset>
+                 <legend> un formulaire</legend>
+                 <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                        <label for="Name">Name</label>
+                        {{form_widget(form.name)}}
+                        </div>
+
+                        <div class="form-group col-md-4">
+                        <label for="Prenom">Prenom</label>
+                        {{form_widget(form.prenom)}}
+                        </div>
+                 </div>
+                 <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                        <label for="Name">sexe</label>
+                        {{form_widget(form.sexe)}}
+                        </div>
+
+                        <div class="form-group col-md-4">
+                        <label for="pays">pays</label>
+                        {{form_widget(form.pays)}}
+                        </div>
+                 </div>
+                 <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                        <label for="Name">Date De Naissance</label>
+                        {{form_widget(form.dateNai)}}
+                        </div>
+
+                        <div class="form-group col-md-4">
+                        <label for="Telephone">Telephone</label>
+                        {{form_widget(form.telephone)}}
+                        </div>
+
+                        
+                 </div>
+                 <div class="form-group col-md-4">
+                       <input class="btn btn-primary" type="submit" value="Submit">
+                  </div>
+
+    </fieldset>
+  {{form_end(form)}}
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+{% block body %}{% endblock %}
+  {% block javascripts %}
+  {% endblock %}
+  </body>
+</html>
