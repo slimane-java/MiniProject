@@ -21,12 +21,12 @@ class DefaultController extends Controller
 
     public function AjouterClientAction(Request $request)
     {
-     header("Access-Control-Allow-Origin: *");
-
-
-
+     /*** Réclaration pour créer form */
     $form=$this->createForm(ClientType::class);
     $formView=$form->createView();
+
+
+    /**   Récupérer les données de request */
     $form->handleRequest($request);
 
 
@@ -35,6 +35,8 @@ class DefaultController extends Controller
     {
 
         $em   =  $this->getDoctrine()->getManager();
+
+    /** Remplir l'objet client à partir des données existantes dans form */
         $Client =new Client();
         $Client->setName($form["name"]->getData());
         $Client->setPrenom($form["prenom"]->getData());
@@ -47,7 +49,8 @@ class DefaultController extends Controller
         $age=$this->getAge($Client->getDateNai()->format('d-m-Y'),$Client->getDateinsc()->format('d-m-Y'));
         $date = (int)$this->getHeur($Client->getDateinsc()->format('h'));
         
-        
+
+    /***Vérifier l'heure pour laquelle la demande a été créée */    
          
         if($date>=12 && $date<=21)
         {
@@ -60,8 +63,12 @@ class DefaultController extends Controller
             $Client->setEtat("attente");
         }
 
+
+  /***Vérifier nombre inscription a dépassé 11 ou pas */
         if($this->getCount()<11)
         {
+
+            /**Vérifier age et pays de candidat */
 
             if(($Client->getPays()=="Maroc" && $age>="16") || ($Client->getPays()!="Maroc" && $age>="18")  )
                 {     
@@ -121,7 +128,7 @@ class DefaultController extends Controller
     {
          $Client1= $this->getDoctrine()->getRepository(Client::class)->findAll();
          $somme=0;
-        $compt=0;
+         $compt=0;
  
     foreach($Client1 as $cli)
     {
@@ -148,4 +155,5 @@ class DefaultController extends Controller
     return $compt;
 
     }
+
 }
